@@ -59,10 +59,12 @@ def fun_out():
     global v_latency
 
     if args.simple:
-        if v_result==True:
-            print("1")
-        else:
+        try:
+            v_result==True
+        except:
             print("0")
+        else:
+            print("1")
     else:
         try:
             v_result==True
