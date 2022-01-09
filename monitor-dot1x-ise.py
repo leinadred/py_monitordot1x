@@ -18,6 +18,10 @@ UNKNOWN = 3
 ######################################################################
 
 parser = argparse.ArgumentParser()
+args_mode = parser.add_mutually_exclusive_group(required=True)
+args_mode.add_argument("--nagios", action="store_true",help="NAGIOS compatible return (0-4 state and detailed output")
+args_mode.add_argument("--zabbix", action="store_true",help="ZABBIX compatible return (0-2 state and no detailed output")
+
 parser.add_argument("-s", "--simple", action="store_true",help="only return 0/1 for Success or Failure (i.e. Zabbix uses only 0/1)", default=False)
 parser.add_argument("-l", "--latency", help="only return latency", default=False)
 parser.add_argument("-a", "--anyresponse", action="store_true", help="Any response is good. Reject or Accept", default=False)
